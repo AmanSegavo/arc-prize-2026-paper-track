@@ -91,3 +91,26 @@ Mohon doa dan dukungannya teman-teman! 🙏✨
 
 #ARCPrize2026 #ArtificialIntelligence #MachineLearning #Kaggle #DeepLearning #Python #Streamlit #AIResearch #AbdurrahmanAssegaf #TechInnovation
 ```
+
+---
+
+## 📸 4. Caption Instagram (Visual, Engaging, & Clean)
+
+```text
+Menjawab Tantangan $450,000 USD di ARC Prize 2026! 🧠⚡
+
+ARC-AGI (Abstraction and Reasoning Corpus) yang diinisiasi oleh François Chollet adalah salah satu benchmark kecerdasan artifisial tersulit di dunia untuk menguji "Fluid Intelligence"—kemampuan AI memecahkan aturan baru secara adaptif dari 2–4 contoh tanpa menghafal.
+
+Dalam kompetisi ARC Prize 2026 - Paper Track, saya merancang sistem Dual-System Neuro-Symbolic Synthesis:
+🔹 System 1: Engine pencarian simbolik ultra-cepat (<190 ms/task) untuk mendeteksi simetri, gravitasi, dan rongga terkurung tanpa halusinasi.
+🔹 System 2: Generator program Python adaptif dengan execution sandbox verifier dan loop perbaikan mandiri (Reflexion).
+
+📊 Hasil Pengujian Empiris:
+• Telah diuji pada 800 task resmi ARC (Training & Evaluation).
+• Dashboard web interaktif dibangun menggunakan Streamlit.
+• Draf paper dan seluruh source code 100% Open Source!
+
+🔗 Link GitHub, Streamlit Dashboard, & Paper submission ada di link bio / story! 🚀
+
+#ARCPrize2026 #ArtificialIntelligence #MachineLearning #AGI #Kaggle #DataScience #Coding #Python #Streamlit #TechInnovation #AIResearch #AbdurrahmanAssegaf #ProgrammerLife
+```
