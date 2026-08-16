@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:05,000
+Halo semuanya, nama saya Abdurrahman Assegaf.
+
+2
+00:00:05,100 --> 00:00:11,500
+Pada kesempatan kali ini, saya mempresentasikan solusi untuk kompetisi ARC Prize 2026 Paper Track.
+
+3
+00:00:11,600 --> 00:00:18,000
+ARC-AGI adalah benchmark penalaran kecerdasan artifisial yang diinisiasi oleh François Chollet dan Mike Knoop.
+
+4
+00:00:18,100 --> 00:00:24,500
+Tujuannya adalah menguji kemampuan fluid intelligence, yaitu menyelesaikan pola baru dari sedikit contoh input-output.
+
+5
+00:00:24,600 --> 00:00:31,000
+Untuk memecahkan tantangan ini, kami merancang arsitektur Dual-System Neuro-Symbolic Synthesis.
+
+6
+00:00:31,100 --> 00:00:37,500
+Sistem ini terbagi menjadi dua komponen utama: System 1 dan System 2.
+
+7
+00:00:37,600 --> 00:00:44,000
+System 1 adalah engine pencarian simbolik Domain-Specific Language yang sangat cepat, di bawah 200 milidetik per task.
+
+8
+00:00:44,100 --> 00:00:51,000
+System 1 menguji prior manusia seperti simetri, gravitasi, ekstraksi objek, dan pengisian rongga terkurung secara deterministik.
+
+9
+00:00:51,100 --> 00:00:58,000
+Sedangkan System 2 menggunakan LLM Code Generator dengan sandbox execution verifier dan Reflexion feedback loop.
+
+10
+00:00:58,100 --> 00:01:05,000
+Sekarang, mari kita lihat live demo dashboard interaktif yang telah kami bangun dengan Streamlit.
+
+11
+00:01:05,100 --> 00:01:11,500
+Di sini kita melihat Task 00d62c1b, di mana solver berhasil menemukan transformasi fill_enclosed hanya dalam 0,01 detik.
+
+12
+00:01:11,600 --> 00:01:18,000
+Selanjutnya pada task gravitasi 1e0a9b12 dan task cropping objek 1f85a75f, solver menghasilkan prediksi 100% tepat.
+
+13
+00:01:18,100 --> 00:01:25,000
+Pada pengujian empiris terhadap seluruh 400 task training resmi ARC, System 1 menyelesaikan 25 task secara instan.
+
+14
+00:01:25,100 --> 00:01:31,500
+Pendekatan ini menghemat lebih dari 90% komputasi dan mengeliminasi halusinasi spasial.
+
+15
+00:01:31,600 --> 00:01:38,000
+Seluruh kode sumber, dataset, dan draf paper telah kami buka secara open source di GitHub kami.
+
+16
+00:01:38,100 --> 00:01:44,000
+Terima kasih telah menonton. Link GitHub, notebook Kaggle, dan dashboard dapat dilihat pada deskripsi di bawah!

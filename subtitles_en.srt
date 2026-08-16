@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:05,000
+Hello everyone, my name is Abdurrahman Assegaf.
+
+2
+00:00:05,100 --> 00:00:11,500
+In this video, I am presenting our solution for the ARC Prize 2026 Paper Track competition.
+
+3
+00:00:11,600 --> 00:00:18,000
+ARC-AGI is the benchmark for Artificial General Intelligence created by François Chollet and Mike Knoop.
+
+4
+00:00:18,100 --> 00:00:24,500
+It evaluates fluid intelligence—the ability to learn novel reasoning rules from minimal input-output demonstrations.
+
+5
+00:00:24,600 --> 00:00:31,000
+To tackle this challenge, we developed the Dual-System Neuro-Symbolic Synthesis architecture.
+
+6
+00:00:31,100 --> 00:00:37,500
+This system is composed of two primary modules: System 1 and System 2.
+
+7
+00:00:37,600 --> 00:00:44,000
+System 1 is an ultra-fast Domain-Specific Language search engine running in under 200 milliseconds per task.
+
+8
+00:00:44,100 --> 00:00:51,000
+It deterministically tests core priors such as symmetry, gravity, object segmentation, and topological hole filling without hallucination.
+
+9
+00:00:51,100 --> 00:00:58,000
+System 2 utilizes an LLM Program Synthesizer with an execution sandbox verifier and Reflexion self-correction loop.
+
+10
+00:00:58,100 --> 00:01:05,000
+Now, let's explore the live interactive dashboard built with Streamlit.
+
+11
+00:01:05,100 --> 00:01:11,500
+Here on Task 00d62c1b, the solver successfully discovered the fill_enclosed transformation in just 0.01 seconds.
+
+12
+00:01:11,600 --> 00:01:18,000
+Similarly, for gravity task 1e0a9b12 and object cropping task 1f85a75f, the solver produces 100% exact match predictions.
+
+13
+00:01:18,100 --> 00:01:25,000
+Across all 400 official ARC training tasks, System 1 solved 25 tasks instantaneously.
+
+14
+00:01:25,100 --> 00:01:31,500
+This dual approach saves over 90% of compute and eliminates spatial hallucinations.
+
+15
+00:01:31,600 --> 00:01:38,000
+All source code, datasets, and paper drafts are fully open-sourced on our GitHub repository.
+
+16
+00:01:38,100 --> 00:01:44,000
+Thank you for watching. The GitHub link, Kaggle notebook, and live dashboard are available in the description below!
