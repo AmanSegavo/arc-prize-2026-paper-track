@@ -9,10 +9,10 @@
 
 ## 1. Abstract & Executive Summary
 
-Solving the Abstraction and Reasoning Corpus (ARC-AGI-2) requires *fluid intelligence*—the capability to infer novel, abstract rules from minimal demonstrations ($N=2..4$) without relying on task-specific pre-training data. Current pure end-to-end Large Language Models (LLMs) suffer from spatial hallucinations and tokenization degradation, whereas pure combinatorial Domain-Specific Language (DSL) synthesizers face combinatorial explosion in deep search spaces. 
+Solving the Abstraction and Reasoning Corpus (ARC-AGI-2) requires *fluid intelligence*—the capability to infer novel, abstract rules from minimal demonstrations (*N* = 2..4) without relying on task-specific pre-training data. Current pure end-to-end Large Language Models (LLMs) suffer from spatial hallucinations and tokenization degradation, whereas pure combinatorial Domain-Specific Language (DSL) synthesizers face combinatorial explosion in deep search spaces. 
 
 In this work, we propose **Dual-System Neuro-Symbolic Synthesis with Test-Time Verification (DNS-TTV)**:
-1. **System 1 (Deterministic Symbolic Filter):** An ultra-fast, object-centric DSL search engine that tests atomic and composed priors (topological hole filling, gravity, symmetry, and bounding-box extraction) in $<200\text{ ms/task}$.
+1. **System 1 (Deterministic Symbolic Filter):** An ultra-fast, object-centric DSL search engine that tests atomic and composed priors (topological hole filling, gravity, symmetry, and bounding-box extraction) in < 200 ms/task.
 2. **System 2 (Reflexive LLM Program Synthesizer):** A higher-order inductive reasoner that generates parametric Python transformations, coupled with a sandboxed execution verifier and an iterative *Reflexion* feedback loop.
 
 Our empirical benchmark on all 400 official ARC training tasks demonstrates that System 1 resolves 6.25% of tasks instantaneously (76.01s total across 400 tasks) with zero hallucination, serving as an optimal heuristic filter before dispatching complex tasks to System 2.
@@ -22,14 +22,14 @@ Our empirical benchmark on all 400 official ARC training tasks demonstrates that
 ## 2. Motivation & Theoretical Formulation
 
 ### 2.1 Formal Problem Definition & Bayesian Program Learning
-Let a task $\mathcal{T}$ be defined by a set of training demonstration pairs $\mathcal{D}_{\text{train}} = \{(X_i, Y_i)\}_{i=1}^N$ and a test input $X_{\text{test}}$, where $X, Y \in \mathcal{G} \subset \{0, \dots, 9\}^{H \times W}$. The objective is to discover a deterministic transformation program $P^* \in \mathcal{H}$ from the space of valid programs $\mathcal{H}$ such that:
+Let a task *T* be defined by a set of training demonstration pairs *D*<sub>train</sub> = {(X<sub>1</sub>, Y<sub>1</sub>), ..., (X<sub>N</sub>, Y<sub>N</sub>)} and a test input X<sub>test</sub>, where X, Y ∈ {0, ..., 9}<sup>H × W</sup>. The objective is to discover a deterministic transformation program *P\** from the hypothesis space *H* of valid programs such that:
 
-$$P^* = \arg\min_{P \in \mathcal{H}} \left( \mathcal{L}_{\text{MDL}}(P) + \lambda \sum_{i=1}^N \mathbb{I}[P(X_i) \neq Y_i] \right)$$
+> **P\*** = argmin<sub>P ∈ H</sub> [ **Length(P)** + λ ∑<sub>i=1..N</sub> **Loss(P(X<sub>i</sub>), Y<sub>i</sub>)** ]
 
-where $\mathcal{L}_{\text{MDL}}(P)$ denotes the *Minimum Description Length* (Kolmogorov complexity proxy) of the program, enforcing Occam's Razor against spurious overfitting on small $N$.
+where **Length(P)** represents the *Minimum Description Length (MDL)* (Kolmogorov complexity proxy) of the program, enforcing Occam's Razor against spurious overfitting on small *N*.
 
 ### 2.2 Universality Beyond Grid Puzzles
-The core philosophy is domain-agnostic: rather than computing direct pixel-to-pixel matrix mappings, our architecture models tasks as **Relational Graph Transformations** over discrete entities $\mathcal{O} = \{o_1, \dots, o_k\}$. This abstraction directly generalizes to program repair, causal inference, and robotic task planning.
+The core philosophy is domain-agnostic: rather than computing direct pixel-to-pixel matrix mappings, our architecture models tasks as **Relational Graph Transformations** over discrete object entities *O* = {o<sub>1</sub>, ..., o<sub>k</sub>}. This abstraction directly generalizes to program repair, causal inference, and robotic task planning.
 
 ---
 
@@ -55,10 +55,10 @@ We represent grids using 4-way and 8-way *Connected Components*, deriving spatia
 - **Object Selectors:** Salience ranking by area (`crop_largest_object`, `crop_smallest_object`).
 
 ### 3.2 Sandboxed Execution Verifier & Reflexion Loop
-Candidate Python scripts are executed in an isolated sandbox. When a program fails on any $(X_i, Y_i)$, the verifier outputs:
-1. Shape mismatch diagnostics ($H_{\text{pred}} \times W_{\text{pred}}$ vs $H_{\text{true}} \times W_{\text{true}}$).
-2. Per-example pixel accuracy $\text{Acc}_{\text{pixel}} = \frac{1}{HW}\sum \mathbb{I}[P(X_i)_{r,c} = (Y_i)_{r,c}]$.
-3. Full traceback and exception localization.
+Candidate Python scripts are executed in an isolated sandbox. When a program fails on any (X<sub>i</sub>, Y<sub>i</sub>), the verifier outputs:
+1. **Shape mismatch diagnostics:** (H<sub>pred</sub> × W<sub>pred</sub> vs H<sub>true</sub> × W<sub>true</sub>).
+2. **Per-example pixel accuracy:** Acc<sub>pixel</sub> = (1 / HW) ∑ [P(X<sub>i</sub>) == Y<sub>i</sub>].
+3. **Full traceback and exception localization.**
 
 This structured error payload is injected back into the prompt, enabling targeted test-time program self-correction.
 
